@@ -7,4 +7,4 @@ Spilp requires [http://code.google.com/p/pygeoip/ pygeoip] Python module to work
 
 To tweak the amount of output and/or performance, edit spilpconfig.py. Note that if you have large amounts of log files (more than 2/3 of your free amount of RAM), you must change DB_STORAGE option to ".tempdb".
 
-Windows users can use spilp.exe binary. In that case there is no need for Python and pygeoip to be installed on the machine. GeoIP country database still needs to be downloaded from MaxMinds website and it needs to be put into the same folder where spilp.exe is located.
+Windows users can use spilp.exe binary. In that case there is no need for Python and pygeoip to be installed on the machine. GeoIP country database still needs to be downloaded from MaxMinds website and it needs to be put into the same folder where spilp.exe is located. Windows spilp.exe binary was made using [http://cx-freeze.sourceforge.net/ cx_freeze] converter. To keep the option of using spilpconfig.py, use "--exclude-modules" switch to exclude spilpconfig.py from converting into binary.
