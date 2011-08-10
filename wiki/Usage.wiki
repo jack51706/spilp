@@ -1,0 +1,10 @@
+#summary usage how-to
+#labels Featured
+
+Spilp is written in python3.2 so you will need that installed.
+
+The script requires [http://code.google.com/p/pygeoip/ pygeoip] python module to work properly. It also requires [http://www.maxmind.com/app/geolitecountry GeoIP country] free [http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz database]. GeoIP country database should be updated every once in a while to get the latest country IP ranges. 
+
+To tweak the amount of output and/or performance, edit spilpconfig.py. Note that if you have large amounts of log files (more than 2/3 of your free amount of RAM), you must change DB_STORAGE option to ".tempdb".
+
+Windows users can use spilp.exe binary. In that case there is no need for Python and pygeoip to be installed on the machine. GeoIP country database still needs to be downloaded from MaxMinds website and it needs to be put into the same folder where spilp.exe is located.
