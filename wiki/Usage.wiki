@@ -13,7 +13,7 @@ Spilp currently works with default IIS log format meaning that it uses the follo
 {{{
 date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status
 }}}
-If you are using a different IIS log format, you will need to add/remove variables in splitLogLine() function in spilp.py (left part of the line that contains "log_line.split"). Be careful when doing so, you must have the same number of variables there as the number of fields in your IIS logs. Also note that some of these IIS log fields were not further used in parsing. So, keeping same variable names is recommended unless you know what you're doing: 
+If you are using a different IIS log format, you will need to add/remove variables in splitLogLine() function in spilp.py (left part of the line that contains "log_line.split"). Be careful when doing so, you must have the same number of variables there as the number of fields in your IIS logs. Also note that some of these IIS log fields were not further used in parsing. So, keeping variable names the same is recommended unless you know what you're doing.
 
 Windows users can use spilp.exe binary. In that case there is no need for Python and pygeoip to be installed on the machine. GeoIP country database still needs to be downloaded from MaxMinds website and it needs to be put into the same directory where spilp.exe is located. 
 
