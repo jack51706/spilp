@@ -17,4 +17,11 @@ If you are using a different IIS log format, you will need to add/remove certain
 
 Windows users can use spilp.exe binary. In that case there is no need for Python and pygeoip to be installed on the machine. GeoIP country database still needs to be downloaded from MaxMinds website and it needs to be put into the same directory where spilp.exe is located. 
 
+To use an IP range list for filtering, use the following syntax:
+{{{
+$$.ip_range(192.168.1.1 - 192.170.127.234)
+}}}
+
+and put that line into your FILTERS.txt file as you would with any other filter expression. 
+
 Windows spilp.exe binary was made using [http://cx-freeze.sourceforge.net/ cx_freeze] converter. To keep using spilpconfig.py for tweaking after conversion, use "--exclude-modules" switch to exclude spilpconfig.py from converting into binary.
