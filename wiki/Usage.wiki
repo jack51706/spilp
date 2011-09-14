@@ -23,4 +23,4 @@ To use an IP range list for filtering, use the following syntax:
 {{{
 $$.ip_range(192.168.1.1 - 192.170.127.234)
 }}}
-and put that line into your FILTERS.txt file as you would with any other filter expression. 
+and put that line into your FILTERS.txt file as you would any other filter expression. 
