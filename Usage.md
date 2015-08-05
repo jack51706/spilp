@@ -1,0 +1,23 @@
+Spilp is written in python3.2 so you will need that installed (if not using Windows binary version).
+
+Spilp requires [pygeoip](http://code.google.com/p/pygeoip/) Python module to work properly. It also requires [GeoIP country](http://www.maxmind.com/app/geolitecountry) free [database](http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz). After downloading GeoIP.dat.gz from MaxMind website, extract the archive, and put GeoIP.dat database into the same directory as spilp.py. GeoIP country database binary should be updated every once in a while to get the latest country IP ranges.
+
+To tweak the amount of output and/or performance, edit spilpconfig.py. Note that if you have large amounts of log files (more than 2/3 of your free amount of RAM), you must change DB\_STORAGE option to ".tempdb".
+
+IIS log files will be automatically parsed if they are in spilp root directory or in any 1st level subdirectory residing in spilp root directory.
+
+Spilp currently works with default IIS log format meaning that it uses the following IIS fields:
+```
+date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status
+```
+If you are using a different IIS log format, you will need to add/remove certain variables in splitLogLine() function in spilp.py (left part of the line that contains "log\_line.split"). Be careful when doing so though, because you must have the same number of variables there as you have fields in your IIS logs and they must be in same order. Keeping variable names the same is recommended unless you know what you are doing.
+
+Windows users can use spilp.exe binary. In that case there is no need for Python and pygeoip to be installed on the machine. GeoIP country database still needs to be downloaded from MaxMinds website and it needs to be put into the same directory where spilp.exe is located.
+
+To use an IP range list for filtering, use the following syntax:
+```
+$$.ip_range(192.168.1.1 - 192.170.127.234)
+```
+and put that line into your FILTERS.txt file as you would do with any other filter expression.
+
+Windows spilp.exe binary was made using [cx\_freeze](http://cx-freeze.sourceforge.net/) converter. To keep using spilpconfig.py for tweaking after conversion, use "--exclude-modules" switch to exclude spilpconfig.py from converting into binary.
